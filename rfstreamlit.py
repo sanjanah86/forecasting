@@ -88,7 +88,6 @@ if uploaded_file:
     
     forecast_df = run_forecast(agg_df, forecast_start, forecast_end, model, group_cols, freq)
     forecast_df = resample_forecast(forecast_df,freq_option,group_cols)
-    #forecast_df['batch_date_dt'] = pd.to_datetime(forecast_df['batch_date'])
 
     if forecast_df is not None:
         if selected_group != "All" and "machine_group" in forecast_df.columns:
@@ -105,5 +104,6 @@ if uploaded_file:
           
     add_download_button(forecast_df, active_tab)
     if forecast_df is not None:
+
 
         plot_lpmpd_dual_line(agg_df, forecast_df, active_tab=active_tab)
